@@ -46,3 +46,13 @@ Route::get('/admin', function () {
 Auth::routes();
 Route::resource('/anak','AnakController');
 Auth::routes();
+
+
+Auth::routes();
+Route::resource('/author','AuthorController');
+Auth::routes();
+
+
+Auth::routes();
+Route::resource('/book','BookController');
+Auth::routes();

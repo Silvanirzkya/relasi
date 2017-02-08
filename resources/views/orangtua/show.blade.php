@@ -32,9 +32,9 @@
 			<div class="form-group">
 					<label class="control-lable">Nama Anak</label>
 						@foreach($ortu->anak as $data)
-							{{$data->nama}}
+							<li>{{$data->nama}}</li>
 						@endforeach
-					 
+					  
 				</div>
 			
 			</form>
