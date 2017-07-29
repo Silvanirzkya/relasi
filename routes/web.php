@@ -28,3 +28,10 @@ Route::get('/orangtua', function () {
     }
 
 });
+
+
+Route::get('/percobaan','MyController@index');
+
+Route::get('/percobaan2','MyController@tampilan');
+
+Route::get('/percobaan3','MyController@tampilanmodel');
