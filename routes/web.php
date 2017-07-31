@@ -35,3 +35,8 @@ Route::get('/percobaan','MyController@index');
 Route::get('/percobaan2','MyController@tampilan');
 
 Route::get('/percobaan3','MyController@tampilanmodel');
+
+
+Route::get('/admin', function () {
+    return view('admin');
+});
