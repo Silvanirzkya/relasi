@@ -42,3 +42,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', function () {
     return view('admin');
 });
+
+Auth::routes();
+Route::resource('/anak','AnakController');
+Auth::routes();

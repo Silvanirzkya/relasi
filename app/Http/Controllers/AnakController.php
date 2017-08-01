@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\orangtua;
 use App\Anak;
-class OrangtuaController extends Controller
+use App\orangtua;
+
+class AnakController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class OrangtuaController extends Controller
     public function index()
     {
         //
-        $ortu = orangtua::with('anak')->get();
-        return view('orangtua.index',compact('ortu'));
+         $anak = Anak::all();
+        return view('anak.index',compact('anak'));
     }
 
     /**
@@ -27,7 +28,8 @@ class OrangtuaController extends Controller
     public function create()
     {
         //
-        return view('orangtua.create');
+        $ortu = orangtua::all();
+         return view('anak.create',compact('ortu'));
     }
 
     /**
@@ -39,14 +41,13 @@ class OrangtuaController extends Controller
     public function store(Request $request)
     {
         //
-        $ortu = new orangtua;
-        $ortu->nama_ayah = $request->a;
-        $ortu->nama_ibu = $request->b;
-        $ortu->umur_ayah = $request->c;
-        $ortu->umur_ibu = $request->d;
-        $ortu->alamat = $request->e;
-        $ortu->save();
-        return redirect('orangtua');
+         $anak = new Anak;
+        $anak->nama = $request->a;
+        $anak->orangtua_id = $request->b;
+        $anak->umur = $request->c;
+        $anak->alamat = $request->d;
+        $anak->save();
+        return redirect('anak');
 
     }
 
@@ -59,9 +60,9 @@ class OrangtuaController extends Controller
     public function show($id)
     {
         //
-        $ortu = orangtua::findOrFail($id);
-        $anak = Anak::all();
-        return view('orangtua.show',compact('ortu','anak'));
+         $anak = anak::findOrFail($id);
+           $ortu = orangtua::all();
+        return view('anak.show',compact('anak','ortu'));
     }
 
     /**
@@ -73,8 +74,9 @@ class OrangtuaController extends Controller
     public function edit($id)
     {
         //
-         $ortu = orangtua::findOrFail($id);
-        return view('orangtua.edit',compact('ortu'));
+         $anak = anak::findOrFail($id);
+          $ortu = orangtua::all();
+        return view('anak.edit',compact('anak','ortu'));
     }
 
     /**
@@ -87,14 +89,13 @@ class OrangtuaController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $ortu =orangtua::findOrFail($id);
-        $ortu->nama_ayah = $request->a;
-        $ortu->nama_ibu = $request->b;
-        $ortu->umur_ayah = $request->c;
-        $ortu->umur_ibu = $request->d;
-        $ortu->alamat = $request->e;
-        $ortu->save();
-        return redirect('orangtua');
+         $anak =anak::findOrFail($id);
+        $anak->nama = $request->a;
+        $anak->orangtua_id = $request->b;
+        $anak->umur = $request->c;
+        $anak->alamat = $request->d;
+        $anak->save();
+        return redirect('anak');
 
 
     }
@@ -108,8 +109,8 @@ class OrangtuaController extends Controller
     public function destroy($id)
     {
         //
-        $ortu = orangtua::findOrFail($id);
-        $ortu->delete();
-        return redirect('orangtua');
+          $anak = anak::findOrFail($id);
+        $anak->delete();
+        return redirect('anak');
     }
 }

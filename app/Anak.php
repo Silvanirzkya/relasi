@@ -14,6 +14,6 @@ class Anak extends Model
 
     public function orangtua()
     {
-    	return $this->belongsTo('App/orangtua','orangtua_id');
+    	return $this->belongsTo('App\orangtua','orangtua_id');
     }
 }

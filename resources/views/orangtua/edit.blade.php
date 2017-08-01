@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
 <div class="row">
 	<center><h1>Data Orang Tua</h1></center>
 	<div class="panel panel-primary">
@@ -40,5 +41,6 @@
 			</form>
 		</div>
 	</div>
+</div>
 </div>
 @endsection
