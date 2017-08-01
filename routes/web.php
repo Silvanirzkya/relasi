@@ -33,11 +33,12 @@ Route::get('/', function () {
 Route::get('/percobaan','MyController@index');
 Route::get('/percobaan2','MyController@tampilan');
 Route::get('/percobaan3','MyController@tampilanmodel');
-Route::get('/admin', function () {
-    return view('admin');
-});
+
 Auth::routes();
 Route::resource('/orangtua','OrangtuaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', function () {
+    return view('admin');
+});
